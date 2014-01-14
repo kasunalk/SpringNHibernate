@@ -58,6 +58,6 @@ public class Launcher {
 
         //AOP
         //1.Advice
-        //2.Pointcut
+        //2.Pointcut, Advisor
     }
 }
