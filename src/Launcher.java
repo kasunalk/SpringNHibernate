@@ -50,5 +50,7 @@ public class Launcher {
         System.out.println(msserviceWOAnno);
 
         //Auto Wiring
+
+        //AOP + Aspect J
     }
 }
