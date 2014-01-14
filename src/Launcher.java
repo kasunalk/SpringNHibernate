@@ -48,5 +48,7 @@ public class Launcher {
         MicroControllerWithoutAnnotationService msserviceWOAnno = (MicroControllerWithoutAnnotationService)
                 context.getBean("microControllerWithoutAnnotationService");
         System.out.println(msserviceWOAnno);
+
+        //Auto Wiring
     }
 }
