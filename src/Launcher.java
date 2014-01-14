@@ -50,10 +50,14 @@ public class Launcher {
         System.out.println(msserviceWOAnno);
 
         //Auto Wiring
+        //1.no
+        //2.auto wire by name
+        //3.auto wire by type
+        //4.auto wire by constructor
+        //5.auto detect
 
         //AOP
         //1.Advice
         //2.Pointcut
-
     }
 }
