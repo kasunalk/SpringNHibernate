@@ -59,5 +59,10 @@ public class Launcher {
         //AOP + Aspect J
         //1.annotation
         //2.configuration
+
+        //AOP
+        //1.Advice
+        //2.Pointcut, Advisor
+
     }
 }

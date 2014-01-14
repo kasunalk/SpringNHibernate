@@ -87,7 +87,7 @@
       <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="12" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.6363636">
+            <state line="65" column="0" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.75757575">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,9 +184,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -219,8 +218,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringNHibernate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SpringNHibernate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -539,14 +553,14 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="4" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0" />
+        <state line="35" column="4" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/autocomponent/serice/MicroControllerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="18" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="18" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/autocomponent/serice/MicroControllerWithoutAnnotationService.java">
@@ -556,7 +570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="12" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.6363636">
+        <state line="65" column="0" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.75757575">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
