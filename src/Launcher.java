@@ -52,5 +52,8 @@ public class Launcher {
         //Auto Wiring
 
         //AOP
+        //1.Advice
+        //2.Pointcut
+
     }
 }
