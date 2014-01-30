@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="springnhibernate" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <include name="**/?*.properties"/>
+    <include name="**/?*.xml"/>
+    <include name="**/?*.gif"/>
+    <include name="**/?*.png"/>
+    <include name="**/?*.jpeg"/>
+    <include name="**/?*.jpg"/>
+    <include name="**/?*.html"/>
+    <include name="**/?*.dtd"/>
+    <include name="**/?*.tld"/>
+    <include name="**/?*.ftl"/>
+  </patternset>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_aopalliance:aopalliance:1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-logging:commons-logging:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-aop:4.0.0.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-aop/4.0.0.RELEASE/spring-aop-4.0.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-beans:4.0.0.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-beans/4.0.0.RELEASE/spring-beans-4.0.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-context:4.0.0.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-core:4.0.0.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-expression:4.0.0.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-expression/4.0.0.RELEASE/spring-expression-4.0.0.RELEASE.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module SpringDependencies -->
+  
+  <dirname property="module.springdependencies.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.springdependencies" value="${compiler.args}"/>
+  
+  <property name="springdependencies.output.dir" value="${module.springdependencies.basedir}/../SpringResources/target/classes"/>
+  <property name="springdependencies.testoutput.dir" value="${module.springdependencies.basedir}/../SpringResources/target/test-classes"/>
+  
+  <path id="springdependencies.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="springdependencies.module.production.classpath">
+    <path refid="library.maven:_org.springframework:spring-context:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.0.0.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.0.0.release.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.0.0.release.classpath"/>
+  </path>
+  
+  <path id="springdependencies.runtime.production.module.classpath">
+    <pathelement location="${springdependencies.output.dir}"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.0.0.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.0.0.release.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.0.0.release.classpath"/>
+  </path>
+  
+  <path id="springdependencies.module.classpath">
+    <pathelement location="${springdependencies.output.dir}"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.0.0.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.0.0.release.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.0.0.release.classpath"/>
+  </path>
+  
+  <path id="springdependencies.runtime.module.classpath">
+    <pathelement location="${springdependencies.testoutput.dir}"/>
+    <pathelement location="${springdependencies.output.dir}"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.0.0.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.0.0.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.0.0.release.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.0.0.release.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.springdependencies">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.springdependencies">
+    <patternset refid="excluded.from.module.springdependencies"/>
+  </patternset>
+  
+  
+  <target name="compile.module.springdependencies" depends="compile.module.springdependencies.production,compile.module.springdependencies.tests" description="Compile module SpringDependencies"/>
+  
+  <target name="compile.module.springdependencies.production" description="Compile module SpringDependencies; production classes"/>
+  
+  <target name="compile.module.springdependencies.tests" depends="compile.module.springdependencies.production" description="compile module SpringDependencies; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.springdependencies" description="cleanup module">
+    <delete dir="${springdependencies.output.dir}"/>
+    <delete dir="${springdependencies.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module SpringNHibernate -->
+  
+  <dirname property="module.springnhibernate.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.springnhibernate" value="${compiler.args}"/>
+  
+  <property name="springnhibernate.output.dir" value="${module.springnhibernate.basedir}/out/production/SpringNHibernate"/>
+  <property name="springnhibernate.testoutput.dir" value="${module.springnhibernate.basedir}/out/test/SpringNHibernate"/>
+  
+  <path id="springnhibernate.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="springnhibernate.module.production.classpath">
+    <pathelement location="${basedir}/lib/spring-orm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-oxm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-support-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-aop-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-beans-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-messaging-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/ognl.jar"/>
+    <pathelement location="${basedir}/lib/spring-aspects-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/xwork-core.jar"/>
+    <pathelement location="${basedir}/lib/freemarker.jar"/>
+    <pathelement location="${basedir}/lib/struts2-core.jar"/>
+    <pathelement location="${basedir}/lib/spring-jms-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/asm-3.3.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-test-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-expression-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-tx-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/cglib-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-core-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-3.2.4.RELEASE.jar"/>
+  </path>
+  
+  <path id="springnhibernate.runtime.production.module.classpath">
+    <pathelement location="${springnhibernate.output.dir}"/>
+    <pathelement location="${basedir}/lib/spring-orm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-oxm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-support-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-aop-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-beans-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-messaging-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/ognl.jar"/>
+    <pathelement location="${basedir}/lib/spring-aspects-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/xwork-core.jar"/>
+    <pathelement location="${basedir}/lib/freemarker.jar"/>
+    <pathelement location="${basedir}/lib/struts2-core.jar"/>
+    <pathelement location="${basedir}/lib/spring-jms-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/asm-3.3.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-test-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-expression-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-tx-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/cglib-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-core-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-3.2.4.RELEASE.jar"/>
+  </path>
+  
+  <path id="springnhibernate.module.classpath">
+    <pathelement location="${springnhibernate.output.dir}"/>
+    <pathelement location="${basedir}/lib/spring-orm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-oxm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-support-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-aop-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-beans-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-messaging-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/ognl.jar"/>
+    <pathelement location="${basedir}/lib/spring-aspects-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/xwork-core.jar"/>
+    <pathelement location="${basedir}/lib/freemarker.jar"/>
+    <pathelement location="${basedir}/lib/struts2-core.jar"/>
+    <pathelement location="${basedir}/lib/spring-jms-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/asm-3.3.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-test-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-expression-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-tx-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/cglib-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-core-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-3.2.4.RELEASE.jar"/>
+  </path>
+  
+  <path id="springnhibernate.runtime.module.classpath">
+    <pathelement location="${springnhibernate.testoutput.dir}"/>
+    <pathelement location="${springnhibernate.output.dir}"/>
+    <pathelement location="${basedir}/lib/spring-orm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-oxm-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-support-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-aop-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-beans-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-messaging-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/ognl.jar"/>
+    <pathelement location="${basedir}/lib/spring-aspects-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/xwork-core.jar"/>
+    <pathelement location="${basedir}/lib/freemarker.jar"/>
+    <pathelement location="${basedir}/lib/struts2-core.jar"/>
+    <pathelement location="${basedir}/lib/spring-jms-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/aopalliance-1.0.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/asm-3.3.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-test-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-expression-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-tx-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/cglib-2.2.2.jar"/>
+    <pathelement location="${basedir}/lib/commons-logging-1.1.1.jar"/>
+    <pathelement location="${basedir}/lib/spring-core-4.0.0.RELEASE.jar"/>
+    <pathelement location="${basedir}/lib/spring-context-3.2.4.RELEASE.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.springnhibernate">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.springnhibernate">
+    <patternset refid="excluded.from.module.springnhibernate"/>
+  </patternset>
+  
+  <path id="springnhibernate.module.sourcepath">
+    <dirset dir="${module.springnhibernate.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.springnhibernate" depends="compile.module.springnhibernate.production,compile.module.springnhibernate.tests" description="Compile module SpringNHibernate"/>
+  
+  <target name="compile.module.springnhibernate.production" description="Compile module SpringNHibernate; production classes">
+    <mkdir dir="${springnhibernate.output.dir}"/>
+    <javac destdir="${springnhibernate.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.springnhibernate}"/>
+      <bootclasspath refid="springnhibernate.module.bootclasspath"/>
+      <classpath refid="springnhibernate.module.production.classpath"/>
+      <src refid="springnhibernate.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.springnhibernate"/>
+    </javac>
+    
+    <copy todir="${springnhibernate.output.dir}">
+      <fileset dir="${module.springnhibernate.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.springnhibernate.tests" depends="compile.module.springnhibernate.production" description="compile module SpringNHibernate; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.springnhibernate" description="cleanup module">
+    <delete dir="${springnhibernate.output.dir}"/>
+    <delete dir="${springnhibernate.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.springdependencies, clean.module.springnhibernate, clean.artifact.springnhibernate:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.springdependencies, compile.module.springnhibernate" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.springnhibernate:war_exploded" value="${basedir}/out/artifacts/SpringNHibernate_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="clean.artifact.springnhibernate:war_exploded" description="clean SpringNHibernate:war exploded artifact output">
+    <delete dir="${artifact.output.springnhibernate:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.springnhibernate:war_exploded" depends="init.artifacts, compile.module.springnhibernate" description="Build &apos;SpringNHibernate:war exploded&apos; artifact">
+    <mkdir dir="${artifact.output.springnhibernate:war_exploded}"/>
+    <copy todir="${artifact.output.springnhibernate:war_exploded}">
+      <fileset dir="${basedir}/web"/>
+    </copy>
+    <mkdir dir="${artifact.output.springnhibernate:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/web.xml"/>
+    <mkdir dir="${artifact.output.springnhibernate:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.springnhibernate:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.springnhibernate:war_exploded}/WEB-INF/classes">
+      <fileset dir="${springnhibernate.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/lib/struts2-core.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/struts2-core.jar"/>
+    <copy file="${basedir}/lib/freemarker.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/freemarker.jar"/>
+    <copy file="${basedir}/lib/xwork-core.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/xwork-core.jar"/>
+    <copy file="${basedir}/lib/ognl.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/ognl.jar"/>
+    <copy file="${basedir}/lib/spring-aop-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-aop-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-aspects-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-aspects-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-beans-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-context-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-context-support-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-context-support-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-core-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-expression-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-instrument-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-instrument-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-jdbc-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-jms-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-jms-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-messaging-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-messaging-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-orm-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-orm-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-oxm-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-oxm-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-test-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-test-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/spring-tx-4.0.0.RELEASE.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/spring-tx-4.0.0.RELEASE.jar"/>
+    <copy file="${basedir}/lib/commons-logging-1.1.1.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+    <copy file="${basedir}/lib/aopalliance-1.0.jar" tofile="${artifact.output.springnhibernate:war_exploded}/WEB-INF/lib/aopalliance-1.0.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.springnhibernate:war_exploded" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
