@@ -7,5 +7,9 @@
 		<echo message="############################################################" />
 	</target>
 
+    <target name="war" depends="compile" description="Building the War file">
+
+    </target>
+
 
 </project>
