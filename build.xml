@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="springnhibernate" default="compile" basedir=".">
+    
+    <property name="war.file" value="springnhibernate.war"/>
+    <property name="lib.dir"  value="${basedir}/web/WEB-INF/lib"/>
+    <property name="src.dir"  value="${basedir}/src"/>
+    <property name="classes.dir" value="${basedir}/web/WEB-INF/classes"/>
+    <property name="web.dir" value="${basedir}/web"/>
+    <property name="dist.dir" value="${basedir}/dist"/>
 
-    <target name="compile" description="Compiling this project">
+    <path id="project.class.path">
+        <pathelement location="${classes.dir}"/>
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+
+    <target name="clean" depends="cleanJava" description="clean java files">
+       	<echo message="############################################################" />
+		<echo message="#                  Cleaning this project                   #" />
+		<echo message="############################################################" />
+        <delete dir="${dist.dir}" failonerror="false"/>
+    </target>
+
+    <target name="cleanJava" description="clean java files">
+       	<echo message="############################################################" />
+		<echo message="#                  Cleaning Java files                     #" />
+		<echo message="############################################################" />
+        <delete dir="${classes.dir}" failonerror="false"/>
+    </target>
+
+    <target name="compile" depends="javac" description="Compile this project">
 		<echo message="############################################################" />
 		<echo message="#                 Compiling this project                   #" />
 		<echo message="############################################################" />
 	</target>
 
-    <target name="war" depends="compile" description="Building the War file">
+    <target name="javac" description="Compile java source">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" optimize="true" deprecation="false" encoding="utf-8">
+            <classpath refid="project.class.path"/>
+        </javac>
+    </target>
 
+    <target name="war" depends="compile" description="Building the War file">
+        <echo message="############################################################" />
+		<echo message="#                 Packaging this project                   #" />
+		<echo message="############################################################" />
+        <mkdir dir="${dist.dir}"/>
+        <war destfile="${dist.dir}/${war.file}" webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}" includes="**/*.*">
+            </fileset>
+        </war>
     </target>
 
 
